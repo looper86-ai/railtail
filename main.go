@@ -25,12 +25,11 @@ func main() {
 	}
 
 	ts := &tsnet.Server{
-		Hostname:      cfg.TSHostname,
-		AuthKey:       cfg.TSAuthKey,
-		AdvertiseTags: []string{"tag:railtail"},
-		RunWebClient:  false,
-		Ephemeral:     false,
-		ControlURL:    cfg.TSLoginServer,
+		Hostname:     cfg.TSHostname,
+		AuthKey:      cfg.TSAuthKey,
+		RunWebClient: false,
+		Ephemeral:    false,
+		ControlURL:   cfg.TSLoginServer,
 		UserLogf: func(format string, v ...any) {
 			logger.Stdout.Info(fmt.Sprintf(format, v...))
 		},
